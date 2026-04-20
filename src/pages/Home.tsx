@@ -44,10 +44,10 @@ function Hero() {
         loop
         playsInline
         className="absolute inset-0 h-full w-full object-cover"
-        poster="https://prestigeluxuryrentals.com/wp-content/uploads/2021/01/Lamborghini-Aventador-Front.jpg"
+        poster="https://prestigeluxuryrentals.com/wp-content/uploads/2023/08/2023-Ferrari-F8-Spider-Front.png"
       >
         <source
-          src="https://videos.pexels.com/video-files/17051328/17051328-hd_1920_1080_24fps.mp4"
+          src="https://videos.pexels.com/video-files/8443860/8443860-hd_1920_1080_30fps.mp4"
           type="video/mp4"
         />
       </video>
