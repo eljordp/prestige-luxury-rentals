@@ -1,56 +1,102 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Car, Shield, Star } from 'lucide-react';
+import {
+  ShieldCheck,
+  Wrench,
+  BadgeDollarSign,
+  Truck,
+  MapPin,
+  Phone,
+  Clock,
+} from 'lucide-react';
+import SEO from '../components/SEO';
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 40 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] as const },
+    transition: { delay: i * 0.12, duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
   }),
 };
 
 const stats = [
-  { value: '20+', label: 'Years' },
-  { value: '50+', label: 'Vehicles' },
+  { value: '20+', label: 'Years in Business' },
   { value: '50%', label: 'Repeat Clients' },
-  { value: '24/7', label: 'Availability' },
+  { value: '25%', label: 'From Referrals' },
+  { value: '4', label: 'Locations' },
 ];
 
-const values = [
+const differentiators = [
   {
-    icon: Car,
-    title: 'Unmatched Selection',
+    icon: ShieldCheck,
+    title: 'No Hidden Fees',
     description:
-      'From Lamborghini to Rolls-Royce, our fleet features the world\'s most coveted exotics — meticulously maintained and ready for any occasion.',
+      'At Prestige Luxury Rentals, there is no such thing as a hidden fee. Every cost is communicated upfront so you know exactly what you\u2019re paying \u2014 no surprises, no fine print, no games.',
   },
   {
-    icon: Star,
-    title: 'White-Glove Service',
+    icon: Wrench,
+    title: 'In-House Service',
     description:
-      'Complimentary delivery, 24/7 concierge support, and personalized itineraries. Every detail is handled so you can focus on the experience.',
+      'We own our cars and service them with our own mechanics. That means every vehicle in our fleet is maintained to factory standards and inspected before every rental.',
   },
   {
-    icon: Shield,
-    title: 'Trusted Reputation',
+    icon: BadgeDollarSign,
+    title: 'Price Match Guarantee',
     description:
-      'Two decades of five-star service, thousands of satisfied clients, and a name synonymous with luxury in Miami and beyond.',
+      'Because we own and maintain our fleet in-house, we offer the lowest prices of any company in the market. Find a better price and we\u2019ll match it \u2014 guaranteed.',
+  },
+  {
+    icon: Truck,
+    title: 'Door-to-Door Delivery',
+    description:
+      'We bring the car to you. Door-to-door delivery, personal and luggage transfer, and a dedicated 24/7 agent available whenever you need us.',
+  },
+];
+
+const locations = [
+  {
+    city: 'Miami, FL',
+    tag: 'Headquarters',
+    address: '4019 NW 25th Street, Miami, FL 33142',
+    phone: '(305) 513-9711',
+    hours: { weekday: 'Mon\u2013Fri: 9am \u2013 7pm', saturday: 'Sat: 10am \u2013 6pm', sunday: 'Sun: 10am \u2013 5pm' },
+  },
+  {
+    city: 'Orlando, FL',
+    tag: null,
+    address: '9187 Boggy Creek Rd #7, Orlando, FL 32824',
+    phone: '(407) 792-5440',
+    hours: { weekday: 'Mon\u2013Fri: 9am \u2013 7pm', saturday: 'Sat: 10am \u2013 6pm', sunday: 'Sun: 10am \u2013 5pm' },
+  },
+  {
+    city: 'Atlanta, GA',
+    tag: null,
+    address: '7100 Buford Hwy NE, Doraville, GA 30340',
+    phone: '(404) 810-9070',
+    hours: { weekday: 'Mon\u2013Fri: 9am \u2013 7pm', saturday: 'Sat: 10am \u2013 6pm', sunday: 'Sun: 10am \u2013 5pm' },
   },
 ];
 
 function About() {
   return (
     <main className="min-h-screen">
-      {/* Hero */}
-      <section className="relative flex items-center justify-center h-[50vh] min-h-[360px] overflow-hidden">
+      <SEO
+        title="About Us | Prestige Luxury Rentals"
+        description="Miami's most trusted exotic car rental since 2004. 4 locations, 50% repeat clients, in-house service, price match guarantee."
+      />
+      {/* ── Hero ── */}
+      <section className="relative flex items-center justify-center h-[55vh] min-h-[400px] overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-charcoal-dark/80 via-charcoal-dark/60 to-charcoal-dark" />
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           className="relative z-10 text-center px-6"
         >
+          <p className="text-sm tracking-[0.3em] uppercase text-gold mb-4">
+            Est. 2004
+          </p>
           <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl tracking-wide text-cream">
             About Prestige
           </h1>
@@ -58,29 +104,73 @@ function About() {
         </motion.div>
       </section>
 
-      {/* Story */}
-      <section className="max-w-[1400px] mx-auto px-6 lg:px-10 py-28 lg:py-36">
-        <div className="max-w-3xl mx-auto text-center">
-          <motion.p
+      {/* ── Our Story ── */}
+      <section className="py-32 md:py-44">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+          <motion.h2
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: '-50px' }}
+            viewport={{ once: true, margin: '-60px' }}
             variants={fadeUp}
             custom={0}
-            className="text-lg md:text-xl leading-relaxed text-smoke"
+            className="font-serif text-3xl md:text-5xl text-cream text-center mb-20"
           >
-            Established in 2004, Prestige Luxury Rentals has been Miami's most trusted
-            exotic car rental service for over 20 years. What started as a passion for
-            fine automobiles has grown into a premier fleet serving clients across Miami,
-            New York, and nationwide.
-          </motion.p>
+            Our Story
+          </motion.h2>
+
+          <div className="max-w-3xl mx-auto space-y-8">
+            <motion.p
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: '-50px' }}
+              variants={fadeUp}
+              custom={1}
+              className="text-lg md:text-xl leading-relaxed text-smoke"
+            >
+              Established in 2004, Prestige Luxury Rentals has been Miami&rsquo;s
+              most trusted exotic car rental service for over 20 years. What
+              started as a passion for fine automobiles has grown into a premier
+              fleet serving clients across Miami, Orlando, Atlanta, and
+              nationwide.
+            </motion.p>
+
+            <motion.p
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: '-50px' }}
+              variants={fadeUp}
+              custom={2}
+              className="text-lg md:text-xl leading-relaxed text-smoke"
+            >
+              Between owning our cars and servicing them in-house, we are able to
+              offer the lowest prices of any company in the market. Our clients
+              don&rsquo;t just rent from us once &mdash; over 50% come back, and
+              a quarter of our business comes from referrals. That kind of trust
+              isn&rsquo;t bought. It&rsquo;s earned, one flawless experience at
+              a time.
+            </motion.p>
+
+            <motion.p
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: '-50px' }}
+              variants={fadeUp}
+              custom={3}
+              className="text-lg md:text-xl leading-relaxed text-smoke"
+            >
+              From our four physical locations to 24/7 agent availability, we
+              built Prestige around a simple idea: the experience should match
+              the car. No hidden fees. No excuses. Just world-class vehicles
+              delivered to your door with white-glove service.
+            </motion.p>
+          </div>
         </div>
       </section>
 
-      {/* Stats */}
+      {/* ── Stats ── */}
       <section className="border-y border-white/5 bg-charcoal">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10 py-20 lg:py-28">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 text-center">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-10 py-32 md:py-44">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-14 lg:gap-8 text-center">
             {stats.map((stat, i) => (
               <motion.div
                 key={stat.label}
@@ -90,10 +180,10 @@ function About() {
                 variants={fadeUp}
                 custom={i}
               >
-                <span className="block font-serif text-4xl md:text-5xl lg:text-6xl text-gold">
+                <span className="block font-serif text-5xl md:text-6xl lg:text-7xl text-gold">
                   {stat.value}
                 </span>
-                <span className="block mt-2 text-sm tracking-[0.2em] uppercase text-smoke">
+                <span className="block mt-3 text-sm tracking-[0.2em] uppercase text-smoke">
                   {stat.label}
                 </span>
               </motion.div>
@@ -102,46 +192,116 @@ function About() {
         </div>
       </section>
 
-      {/* Values */}
-      <section className="max-w-[1400px] mx-auto px-6 lg:px-10 py-28 lg:py-36">
-        <motion.h2
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-50px' }}
-          variants={fadeUp}
-          custom={0}
-          className="font-serif text-3xl md:text-4xl text-cream text-center mb-20"
-        >
-          Why Clients Choose Prestige
-        </motion.h2>
+      {/* ── What Sets Us Apart ── */}
+      <section className="py-32 md:py-44">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+          <motion.h2
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-60px' }}
+            variants={fadeUp}
+            custom={0}
+            className="font-serif text-3xl md:text-5xl text-cream text-center mb-20"
+          >
+            What Sets Us Apart
+          </motion.h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          {values.map((val, i) => {
-            const Icon = val.icon;
-            return (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {differentiators.map((item, i) => {
+              const Icon = item.icon;
+              return (
+                <motion.div
+                  key={item.title}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, margin: '-50px' }}
+                  variants={fadeUp}
+                  custom={i + 1}
+                  className="bg-charcoal border border-white/5 p-10 lg:p-14 hover:border-gold/20 transition-colors duration-500"
+                >
+                  <div className="w-14 h-14 flex items-center justify-center rounded-full border border-gold/30 mb-8">
+                    <Icon className="w-6 h-6 text-gold" />
+                  </div>
+                  <h3 className="font-serif text-2xl text-cream mb-4">
+                    {item.title}
+                  </h3>
+                  <p className="text-base leading-relaxed text-smoke">
+                    {item.description}
+                  </p>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Our Locations ── */}
+      <section className="border-y border-white/5 bg-charcoal py-32 md:py-44">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+          <motion.h2
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-60px' }}
+            variants={fadeUp}
+            custom={0}
+            className="font-serif text-3xl md:text-5xl text-cream text-center mb-20"
+          >
+            Our Locations
+          </motion.h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {locations.map((loc, i) => (
               <motion.div
-                key={val.title}
+                key={loc.city}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, margin: '-50px' }}
                 variants={fadeUp}
                 custom={i + 1}
-                className="bg-charcoal border border-white/5 p-10 lg:p-12 flex flex-col items-center text-center hover:border-gold/20 transition-colors duration-500"
+                className="bg-charcoal-dark border border-white/5 p-10 lg:p-12 hover:border-gold/20 transition-colors duration-500"
               >
-                <div className="w-14 h-14 flex items-center justify-center rounded-full border border-gold/30 mb-8">
-                  <Icon className="w-6 h-6 text-gold" />
+                <h3 className="font-serif text-2xl text-cream mb-1">
+                  {loc.city}
+                </h3>
+                {loc.tag && (
+                  <span className="inline-block text-xs tracking-[0.2em] uppercase text-gold mb-6">
+                    {loc.tag}
+                  </span>
+                )}
+                {!loc.tag && <div className="mb-6" />}
+
+                <div className="space-y-4 text-sm text-smoke">
+                  <div className="flex items-start gap-3">
+                    <MapPin className="w-4 h-4 text-gold mt-0.5 shrink-0" />
+                    <span>{loc.address}</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Phone className="w-4 h-4 text-gold shrink-0" />
+                    <a
+                      href={`tel:${loc.phone.replace(/[^+\d]/g, '')}`}
+                      className="hover:text-gold transition-colors duration-300"
+                    >
+                      {loc.phone}
+                    </a>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Clock className="w-4 h-4 text-gold mt-0.5 shrink-0" />
+                    <div className="leading-relaxed">
+                      <span className="block">{loc.hours.weekday}</span>
+                      <span className="block">{loc.hours.saturday}</span>
+                      <span className="block">{loc.hours.sunday}</span>
+                    </div>
+                  </div>
                 </div>
-                <h3 className="font-serif text-xl text-cream mb-4">{val.title}</h3>
-                <p className="text-sm leading-relaxed text-smoke">{val.description}</p>
               </motion.div>
-            );
-          })}
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="border-t border-white/5 bg-charcoal">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10 py-24 lg:py-32 text-center">
+      {/* ── CTA ── */}
+      <section className="py-32 md:py-44">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-10 text-center">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -149,12 +309,16 @@ function About() {
             variants={fadeUp}
             custom={0}
           >
-            <h2 className="font-serif text-3xl md:text-4xl text-cream mb-10">
-              Ready to experience the Prestige difference?
+            <h2 className="font-serif text-3xl md:text-5xl text-cream mb-6">
+              Book Your Dream Rental Today
             </h2>
+            <p className="text-smoke text-lg max-w-xl mx-auto mb-12">
+              Browse our fleet of exotic and luxury vehicles. Door-to-door
+              delivery, no hidden fees, and 24/7 support included.
+            </p>
             <Link
               to="/fleet"
-              className="inline-block px-10 py-4 bg-gold text-charcoal-dark text-sm font-semibold tracking-widest uppercase hover:bg-gold-light transition-colors duration-300"
+              className="inline-block px-12 py-4 bg-gold text-charcoal-dark text-sm font-semibold tracking-widest uppercase hover:bg-gold-light transition-colors duration-300"
             >
               Explore the Fleet
             </Link>

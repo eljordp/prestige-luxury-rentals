@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { cars, brands } from '../data/cars';
 import type { Car } from '../data/cars';
+import SEO from '../components/SEO';
 
 type SortOption = 'none' | 'low' | 'high';
 type CategoryFilter = 'all' | 'exotic' | 'suv' | 'convertible';
@@ -48,6 +49,10 @@ export default function Fleet() {
 
   return (
     <div className="min-h-screen bg-[#0F0F0F]">
+      <SEO
+        title="Our Fleet | Prestige Luxury Rentals"
+        description="Browse our collection of exotic and luxury cars for rent. Lamborghini, Ferrari, McLaren, Porsche, Mercedes, and more from $395/day."
+      />
       {/* Page Header */}
       <section className="pt-36 pb-16 px-6 text-center">
         <motion.h1

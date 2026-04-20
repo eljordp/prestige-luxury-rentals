@@ -8,6 +8,9 @@ import Fleet from './pages/Fleet'
 import CarDetail from './pages/CarDetail'
 import About from './pages/About'
 import Contact from './pages/Contact'
+import FAQs from './pages/FAQs'
+import Chauffeur from './pages/Chauffeur'
+import Locations from './pages/Locations'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -29,6 +32,9 @@ function App() {
           <Route path="/fleet/:id" element={<CarDetail />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/faqs" element={<FAQs />} />
+          <Route path="/chauffeur" element={<Chauffeur />} />
+          <Route path="/locations" element={<Locations />} />
         </Routes>
       </main>
       <Footer />

@@ -3,6 +3,7 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Shield, Clock, Star, ChevronDown, Phone, MessageCircle } from 'lucide-react';
 import { getFeaturedCars } from '../data/cars';
+import SEO from '../components/SEO';
 
 /* ─── Reusable animation wrapper ─── */
 function AnimatedSection({
@@ -354,6 +355,10 @@ function SectionDivider() {
 export default function Home() {
   return (
     <main>
+      <SEO
+        title="Exotic & Luxury Car Rental Miami | Prestige Luxury Rentals"
+        description="Premium exotic car rentals in Miami, Orlando & Atlanta. Ferrari, Lamborghini, Rolls-Royce, and more. 24/7 delivery. Established 2004."
+      />
       <Hero />
       <FeaturedFleet />
       <SectionDivider />

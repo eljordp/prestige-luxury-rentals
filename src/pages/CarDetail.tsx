@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import { getCarById, cars, type Car } from '../data/cars';
 import { useMemo } from 'react';
+import SEO from '../components/SEO';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -79,6 +80,10 @@ function CarDetail() {
 
   return (
     <div className="min-h-screen bg-[#0F0F0F]">
+      <SEO
+        title={`${car.brand} ${car.model} Rental | Prestige Luxury Rentals`}
+        description={`Rent the ${car.year} ${car.brand} ${car.model} starting at $${car.pricePerDay.toLocaleString()}/day. Door-to-door delivery in Miami, Orlando & Atlanta.`}
+      />
       {/* Hero */}
       <section className="relative w-full h-[60vh] md:h-[70vh] overflow-hidden">
         <motion.img

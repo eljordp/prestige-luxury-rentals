@@ -10,6 +10,7 @@ import {
   Building2,
   Truck,
 } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -89,6 +90,10 @@ function Contact() {
 
   return (
     <main className="min-h-screen">
+      <SEO
+        title="Contact Us | Prestige Luxury Rentals"
+        description="Get in touch with Prestige Luxury Rentals. Call (305) 513-9711 or visit our Miami, Orlando, or Atlanta locations."
+      />
       {/* Hero */}
       <section className="relative flex items-center justify-center h-[50vh] min-h-[360px] overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-charcoal-dark/80 via-charcoal-dark/60 to-charcoal-dark" />
