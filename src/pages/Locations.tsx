@@ -82,19 +82,18 @@ const fleetBrands = [
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 function Hero() {
   return (
-    <section className="relative flex items-center justify-center h-[50vh] min-h-[360px] overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0F0F0F]/80 via-[#0F0F0F]/60 to-[#0F0F0F]" />
+    <section className="relative flex items-center justify-center h-[50vh] min-h-[360px] overflow-hidden bg-light">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         className="relative z-10 text-center px-6"
       >
-        <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl tracking-wide text-[#F5F0E8]">
+        <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl tracking-wide text-dark">
           Our Locations
         </h1>
-        <div className="w-16 h-px bg-[#C9A84C] mx-auto mt-6" />
-        <p className="mt-6 text-base text-[#B0B0B0] md:text-lg max-w-xl mx-auto">
+        <div className="w-16 h-px bg-red mx-auto mt-6" />
+        <p className="mt-6 text-base text-gray md:text-lg max-w-xl mx-auto">
           Three locations. 50+ cities served. Nationwide delivery.
         </p>
       </motion.div>
@@ -107,28 +106,28 @@ function Hero() {
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 function PhysicalLocations() {
   return (
-    <section className="bg-[#0F0F0F] px-6 py-32 md:py-44">
+    <section className="bg-white px-6 py-32 md:py-44">
       <div className="mx-auto max-w-7xl">
         <AnimatedSection className="mb-20 text-center">
-          <h2 className="font-serif text-3xl text-[#F5F0E8] sm:text-4xl md:text-5xl">
+          <h2 className="font-serif text-3xl text-dark sm:text-4xl md:text-5xl">
             Visit Us
           </h2>
-          <div className="mx-auto mt-4 h-0.5 w-16 bg-[#C9A84C]" />
+          <div className="mx-auto mt-4 h-0.5 w-16 bg-red" />
         </AnimatedSection>
 
         <div className="grid gap-10 md:grid-cols-3">
           {physicalLocations.map((loc, i) => (
             <AnimatedSection key={loc.city} delay={i * 0.12}>
-              <div className="relative rounded-xl border border-[#2A2A2A] bg-[#1A1A1A] p-10 hover:border-[#C9A84C]/30 transition-colors duration-500 h-full flex flex-col">
-                {/* Gold accent top */}
-                <div className="absolute top-0 left-0 right-0 h-[2px] rounded-t-xl bg-[#C9A84C]" />
+              <div className="relative rounded-xl border border-gray-muted bg-white p-10 hover:border-red/20 hover:shadow-sm transition-all duration-500 h-full flex flex-col">
+                {/* Red accent top */}
+                <div className="absolute top-0 left-0 right-0 h-[2px] rounded-t-xl bg-red" />
 
                 {/* City + Badge */}
                 <div className="flex items-center gap-3 mb-6">
-                  <MapPin className="w-5 h-5 text-[#C9A84C] shrink-0" />
-                  <h3 className="font-serif text-2xl text-[#F5F0E8]">{loc.city}</h3>
+                  <MapPin className="w-5 h-5 text-red shrink-0" />
+                  <h3 className="font-serif text-2xl text-dark">{loc.city}</h3>
                   {loc.badge && (
-                    <span className="px-2.5 py-0.5 text-[10px] tracking-widest uppercase bg-[#C9A84C]/15 text-[#C9A84C] border border-[#C9A84C]/30 rounded-full">
+                    <span className="px-2.5 py-0.5 text-[10px] tracking-widest uppercase bg-red/5 text-red border border-red/20 rounded-full">
                       {loc.badge}
                     </span>
                   )}
@@ -141,8 +140,8 @@ function PhysicalLocations() {
                   rel="noopener noreferrer"
                   className="flex items-start gap-3 mb-5 group"
                 >
-                  <Navigation className="w-4 h-4 text-[#B0B0B0] mt-0.5 shrink-0 group-hover:text-[#C9A84C] transition-colors duration-300" />
-                  <span className="text-sm text-[#B0B0B0] leading-relaxed group-hover:text-[#F5F0E8] transition-colors duration-300">
+                  <Navigation className="w-4 h-4 text-gray mt-0.5 shrink-0 group-hover:text-red transition-colors duration-300" />
+                  <span className="text-sm text-gray leading-relaxed group-hover:text-dark transition-colors duration-300">
                     {loc.address}
                   </span>
                 </a>
@@ -152,16 +151,16 @@ function PhysicalLocations() {
                   href={loc.phoneHref}
                   className="flex items-center gap-3 mb-5 group"
                 >
-                  <Phone className="w-4 h-4 text-[#B0B0B0] shrink-0 group-hover:text-[#C9A84C] transition-colors duration-300" />
-                  <span className="text-sm text-[#B0B0B0] group-hover:text-[#F5F0E8] transition-colors duration-300">
+                  <Phone className="w-4 h-4 text-gray shrink-0 group-hover:text-red transition-colors duration-300" />
+                  <span className="text-sm text-gray group-hover:text-dark transition-colors duration-300">
                     {loc.phone}
                   </span>
                 </a>
 
                 {/* Hours */}
-                <div className="flex items-start gap-3 mt-auto pt-5 border-t border-[#2A2A2A]">
-                  <Clock className="w-4 h-4 text-[#C9A84C] mt-0.5 shrink-0" />
-                  <span className="text-xs text-[#B0B0B0] leading-relaxed">
+                <div className="flex items-start gap-3 mt-auto pt-5 border-t border-gray-muted">
+                  <Clock className="w-4 h-4 text-red mt-0.5 shrink-0" />
+                  <span className="text-xs text-gray leading-relaxed">
                     {hours}
                   </span>
                 </div>
@@ -179,14 +178,14 @@ function PhysicalLocations() {
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 function ServiceAreas() {
   return (
-    <section className="bg-[#0F0F0F] px-6 py-32 md:py-44">
+    <section className="bg-light px-6 py-32 md:py-44">
       <div className="mx-auto max-w-7xl">
         <AnimatedSection className="mb-20 text-center">
-          <h2 className="font-serif text-3xl text-[#F5F0E8] sm:text-4xl md:text-5xl">
+          <h2 className="font-serif text-3xl text-dark sm:text-4xl md:text-5xl">
             50+ Cities Served Nationwide
           </h2>
-          <div className="mx-auto mt-4 h-0.5 w-16 bg-[#C9A84C]" />
-          <p className="mt-6 text-[#B0B0B0] text-base max-w-xl mx-auto">
+          <div className="mx-auto mt-4 h-0.5 w-16 bg-red" />
+          <p className="mt-6 text-gray text-base max-w-xl mx-auto">
             We deliver exotic vehicles directly to your door in all of these cities and beyond.
           </p>
         </AnimatedSection>
@@ -196,7 +195,7 @@ function ServiceAreas() {
             {serviceAreas.map((city) => (
               <span
                 key={city}
-                className="px-4 py-2 rounded-full bg-[#1A1A1A] border border-[#2A2A2A] text-sm text-[#B0B0B0] hover:border-[#C9A84C]/40 hover:text-[#F5F0E8] transition-colors duration-300 cursor-default"
+                className="px-4 py-2 rounded-full bg-white border border-gray-muted text-sm text-gray hover:border-red/20 hover:text-dark transition-colors duration-300 cursor-default"
               >
                 {city}
               </span>
@@ -213,13 +212,13 @@ function ServiceAreas() {
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 function FleetBrands() {
   return (
-    <section className="bg-[#0F0F0F] px-6 py-32 md:py-44">
+    <section className="bg-white px-6 py-32 md:py-44">
       <div className="mx-auto max-w-5xl">
         <AnimatedSection className="mb-20 text-center">
-          <h2 className="font-serif text-3xl text-[#F5F0E8] sm:text-4xl md:text-5xl">
+          <h2 className="font-serif text-3xl text-dark sm:text-4xl md:text-5xl">
             Fleet Brands Available
           </h2>
-          <div className="mx-auto mt-4 h-0.5 w-16 bg-[#C9A84C]" />
+          <div className="mx-auto mt-4 h-0.5 w-16 bg-red" />
         </AnimatedSection>
 
         <AnimatedSection delay={0.1}>
@@ -227,10 +226,10 @@ function FleetBrands() {
             {fleetBrands.map((brand) => (
               <div
                 key={brand}
-                className="flex items-center justify-center gap-2 rounded-lg border border-[#2A2A2A] bg-[#1A1A1A] p-5 hover:border-[#C9A84C]/30 transition-colors duration-500"
+                className="flex items-center justify-center gap-2 rounded-lg border border-gray-muted bg-white p-5 hover:border-red/20 hover:shadow-sm transition-all duration-500"
               >
-                <Car className="w-4 h-4 text-[#C9A84C]" />
-                <span className="text-sm font-medium text-[#F5F0E8]">{brand}</span>
+                <Car className="w-4 h-4 text-red" />
+                <span className="text-sm font-medium text-dark">{brand}</span>
               </div>
             ))}
           </div>
@@ -245,22 +244,22 @@ function FleetBrands() {
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 function BottomCta() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-[#1A1A1A] via-[#0F0F0F] to-[#1A1A1A] px-6 py-32 md:py-44">
-      <div className="pointer-events-none absolute left-1/2 top-0 h-[1px] w-2/3 -translate-x-1/2 bg-gradient-to-r from-transparent via-[#C9A84C]/40 to-transparent" />
+    <section className="relative overflow-hidden bg-light px-6 py-32 md:py-44">
+      <div className="pointer-events-none absolute left-1/2 top-0 h-[1px] w-2/3 -translate-x-1/2 bg-gradient-to-r from-transparent via-red/20 to-transparent" />
 
       <div className="relative z-10 mx-auto max-w-3xl text-center">
         <AnimatedSection>
-          <h2 className="font-serif text-3xl text-[#F5F0E8] sm:text-4xl md:text-5xl">
+          <h2 className="font-serif text-3xl text-dark sm:text-4xl md:text-5xl">
             Available Nationwide
           </h2>
-          <p className="mt-6 text-base text-[#B0B0B0] md:text-lg">
+          <p className="mt-6 text-base text-gray md:text-lg">
             Don&apos;t see your city? We deliver anywhere in the continental U.S. Call us for custom delivery options.
           </p>
 
           <div className="mt-12 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <a
               href="tel:+13055139711"
-              className="inline-flex items-center gap-2 rounded bg-[#C9A84C] px-8 py-3.5 font-sans text-sm font-semibold uppercase tracking-widest text-[#0F0F0F] transition-colors hover:bg-[#d4b85e]"
+              className="inline-flex items-center gap-2 rounded bg-red px-8 py-3.5 font-sans text-sm font-semibold uppercase tracking-widest text-white transition-colors hover:bg-red-dark"
             >
               <Phone className="h-4 w-4" />
               (305) 513-9711
@@ -278,7 +277,7 @@ function BottomCta() {
 function SectionDivider() {
   return (
     <div className="mx-auto max-w-7xl px-6">
-      <div className="h-px bg-gradient-to-r from-transparent via-[#C9A84C]/20 to-transparent" />
+      <div className="h-px bg-gradient-to-r from-transparent via-gray-muted to-transparent" />
     </div>
   );
 }
@@ -288,7 +287,7 @@ function SectionDivider() {
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 export default function Locations() {
   return (
-    <main>
+    <main className="bg-white">
       <SEO
         title="Locations | Prestige Luxury Rentals"
         description="Visit Prestige Luxury Rentals in Miami, Orlando, or Atlanta. 50+ cities served nationwide with door-to-door exotic car delivery."

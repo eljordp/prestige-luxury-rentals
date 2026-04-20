@@ -25,13 +25,13 @@ const locationLinks = [
 
 function Footer() {
   return (
-    <footer className="bg-charcoal border-t border-white/5">
+    <footer className="bg-dark">
       {/* Main Grid */}
       <div className="max-w-[1400px] mx-auto px-6 lg:px-10 py-20 lg:py-28">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-14 lg:gap-12">
           {/* Company */}
           <div>
-            <h4 className="font-serif text-sm tracking-[0.2em] uppercase text-cream mb-8">
+            <h4 className="font-serif text-sm tracking-[0.2em] uppercase text-white mb-8">
               Company
             </h4>
             <ul className="space-y-4">
@@ -39,7 +39,7 @@ function Footer() {
                 <li key={link.to}>
                   <Link
                     to={link.to}
-                    className="text-sm text-smoke hover:text-gold transition-colors duration-300"
+                    className="text-sm text-gray-light hover:text-white transition-colors duration-300"
                   >
                     {link.label}
                   </Link>
@@ -50,7 +50,7 @@ function Footer() {
 
           {/* Fleet */}
           <div>
-            <h4 className="font-serif text-sm tracking-[0.2em] uppercase text-cream mb-8">
+            <h4 className="font-serif text-sm tracking-[0.2em] uppercase text-white mb-8">
               Fleet
             </h4>
             <ul className="space-y-4">
@@ -58,7 +58,7 @@ function Footer() {
                 <li key={link.to}>
                   <Link
                     to={link.to}
-                    className="text-sm text-smoke hover:text-gold transition-colors duration-300"
+                    className="text-sm text-gray-light hover:text-white transition-colors duration-300"
                   >
                     {link.label}
                   </Link>
@@ -69,7 +69,7 @@ function Footer() {
 
           {/* Locations */}
           <div>
-            <h4 className="font-serif text-sm tracking-[0.2em] uppercase text-cream mb-8">
+            <h4 className="font-serif text-sm tracking-[0.2em] uppercase text-white mb-8">
               Locations
             </h4>
             <ul className="space-y-4">
@@ -77,7 +77,7 @@ function Footer() {
                 <li key={link.to}>
                   <Link
                     to={link.to}
-                    className="text-sm text-smoke hover:text-gold transition-colors duration-300"
+                    className="text-sm text-gray-light hover:text-white transition-colors duration-300"
                   >
                     {link.label}
                   </Link>
@@ -88,14 +88,14 @@ function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="font-serif text-sm tracking-[0.2em] uppercase text-cream mb-8">
+            <h4 className="font-serif text-sm tracking-[0.2em] uppercase text-white mb-8">
               Contact
             </h4>
             <ul className="space-y-5">
               <li>
                 <a
                   href="tel:+13055139711"
-                  className="flex items-center gap-3 text-sm text-smoke hover:text-gold transition-colors duration-300"
+                  className="flex items-center gap-3 text-sm text-gray-light hover:text-white transition-colors duration-300"
                 >
                   <Phone className="w-4 h-4 shrink-0" />
                   (305) 513-9711
@@ -106,7 +106,7 @@ function Footer() {
                   href="https://wa.me/13055139711"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-sm text-smoke hover:text-gold transition-colors duration-300"
+                  className="flex items-center gap-3 text-sm text-gray-light hover:text-white transition-colors duration-300"
                 >
                   <MessageCircle className="w-4 h-4 shrink-0" />
                   WhatsApp
@@ -115,14 +115,14 @@ function Footer() {
               <li>
                 <a
                   href="mailto:info@prestigeluxuryrentals.com"
-                  className="flex items-center gap-3 text-sm text-smoke hover:text-gold transition-colors duration-300"
+                  className="flex items-center gap-3 text-sm text-gray-light hover:text-white transition-colors duration-300"
                 >
                   <Mail className="w-4 h-4 shrink-0" />
                   info@prestigeluxuryrentals.com
                 </a>
               </li>
               <li>
-                <div className="flex items-start gap-3 text-sm text-smoke">
+                <div className="flex items-start gap-3 text-sm text-gray-light">
                   <MapPin className="w-4 h-4 shrink-0 mt-0.5" />
                   <span>
                     4019 NW 25th St,<br />
@@ -136,9 +136,9 @@ function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-white/5">
+      <div className="border-t border-white/10">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-smoke tracking-wide">
+          <p className="text-xs text-gray-light tracking-wide">
             &copy; 2004&ndash;2026 Prestige Luxury Rentals. All rights reserved.
           </p>
 
@@ -148,7 +148,7 @@ function Footer() {
               href="https://instagram.com/prestigeluxuryrentals"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-smoke hover:text-gold transition-colors duration-300"
+              className="text-gray-light hover:text-white transition-colors duration-300"
               aria-label="Instagram"
             >
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -159,7 +159,7 @@ function Footer() {
               href="https://facebook.com/prestigeluxuryrentals"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-smoke hover:text-gold transition-colors duration-300"
+              className="text-gray-light hover:text-white transition-colors duration-300"
               aria-label="Facebook"
             >
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -170,7 +170,7 @@ function Footer() {
               href="https://youtube.com/@prestigeluxuryrentals"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-smoke hover:text-gold transition-colors duration-300"
+              className="text-gray-light hover:text-white transition-colors duration-300"
               aria-label="YouTube"
             >
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">

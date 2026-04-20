@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { Phone, MessageCircle, ChevronDown } from 'lucide-react';
+import SEO from '../components/SEO';
 
 /* ─── Types ─── */
 interface FAQItem {
@@ -180,7 +181,7 @@ function AccordionItem({ item, isOpen, onToggle }: { item: FAQItem; isOpen: bool
   return (
     <div
       className={`rounded-lg overflow-hidden transition-colors duration-300 ${
-        isOpen ? 'bg-charcoal-light border-l-4 border-gold' : 'bg-charcoal border-l-4 border-transparent'
+        isOpen ? 'bg-light border-l-4 border-red' : 'bg-white border-l-4 border-transparent'
       }`}
     >
       <button
@@ -189,7 +190,7 @@ function AccordionItem({ item, isOpen, onToggle }: { item: FAQItem; isOpen: bool
       >
         <span
           className={`font-serif text-lg md:text-xl transition-colors duration-300 ${
-            isOpen ? 'text-gold' : 'text-cream group-hover:text-gold-light'
+            isOpen ? 'text-red' : 'text-dark group-hover:text-red'
           }`}
         >
           {item.question}
@@ -201,7 +202,7 @@ function AccordionItem({ item, isOpen, onToggle }: { item: FAQItem; isOpen: bool
         >
           <ChevronDown
             className={`w-5 h-5 transition-colors duration-300 ${
-              isOpen ? 'text-gold' : 'text-smoke'
+              isOpen ? 'text-red' : 'text-gray'
             }`}
           />
         </motion.span>
@@ -216,7 +217,7 @@ function AccordionItem({ item, isOpen, onToggle }: { item: FAQItem; isOpen: bool
             transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
             className="overflow-hidden"
           >
-            <p className="px-8 pb-8 text-smoke leading-relaxed font-sans">
+            <p className="px-8 pb-8 text-gray leading-relaxed font-sans">
               {item.answer}
             </p>
           </motion.div>
@@ -237,32 +238,35 @@ function FAQs() {
   };
 
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-white">
+      <SEO
+        title="FAQs | Prestige Luxury Rentals"
+        description="Frequently asked questions about renting exotic and luxury cars from Prestige Luxury Rentals. Booking, requirements, pricing, and policies."
+      />
       {/* ── Hero ── */}
-      <section className="relative flex items-center justify-center h-[50vh] min-h-[360px] overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-charcoal-dark/80 via-charcoal-dark/60 to-charcoal-dark" />
+      <section className="relative flex items-center justify-center h-[50vh] min-h-[360px] overflow-hidden bg-light">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="relative z-10 text-center px-6"
         >
-          <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl tracking-wide text-cream">
+          <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl tracking-wide text-dark">
             Frequently Asked Questions
           </h1>
-          <div className="w-16 h-px bg-gold mx-auto mt-6" />
-          <p className="mt-6 text-smoke text-lg md:text-xl max-w-2xl mx-auto font-sans">
+          <div className="w-16 h-px bg-red mx-auto mt-6" />
+          <p className="mt-6 text-gray text-lg md:text-xl max-w-2xl mx-auto font-sans">
             Everything you need to know about renting with Prestige
           </p>
         </motion.div>
       </section>
 
       {/* ── FAQ Categories ── */}
-      <section className="py-32 md:py-44">
+      <section className="py-32 md:py-44 bg-white">
         <div className="max-w-4xl mx-auto px-6">
           {categories.map((category, catIdx) => (
             <AnimatedSection key={category.title} delay={catIdx * 0.1} className="mb-20">
-              <h2 className="font-serif text-2xl md:text-3xl text-cream mb-8">
+              <h2 className="font-serif text-2xl md:text-3xl text-dark mb-8">
                 {category.title}
               </h2>
               <div className="space-y-3">
@@ -284,18 +288,18 @@ function FAQs() {
       </section>
 
       {/* ── Bottom CTA ── */}
-      <section className="py-32 md:py-44 border-t border-charcoal-light">
+      <section className="py-32 md:py-44 border-t border-gray-muted bg-light">
         <AnimatedSection className="max-w-3xl mx-auto px-6 text-center">
-          <h2 className="font-serif text-3xl md:text-4xl text-cream mb-6">
+          <h2 className="font-serif text-3xl md:text-4xl text-dark mb-6">
             Still have questions?
           </h2>
-          <p className="text-smoke text-lg mb-12 font-sans">
+          <p className="text-gray text-lg mb-12 font-sans">
             Our team is standing by to help you find the perfect vehicle for any occasion.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
               href="tel:+13055139711"
-              className="inline-flex items-center gap-3 bg-gold hover:bg-gold-light text-charcoal-dark font-semibold px-8 py-4 rounded-lg transition-colors duration-300"
+              className="inline-flex items-center gap-3 bg-red hover:bg-red-dark text-white font-semibold px-8 py-4 rounded-lg transition-colors duration-300"
             >
               <Phone className="w-5 h-5" />
               (305) 513-9711
@@ -304,7 +308,7 @@ function FAQs() {
               href="https://wa.me/13055139711"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 border border-gold text-gold hover:bg-gold/10 font-semibold px-8 py-4 rounded-lg transition-colors duration-300"
+              className="inline-flex items-center gap-3 border border-red text-red hover:bg-red/5 font-semibold px-8 py-4 rounded-lg transition-colors duration-300"
             >
               <MessageCircle className="w-5 h-5" />
               WhatsApp

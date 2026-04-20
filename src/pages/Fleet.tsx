@@ -43,38 +43,40 @@ export default function Fleet() {
   const filterBtnClass = (active: boolean) =>
     `whitespace-nowrap px-4 py-2 rounded-full text-sm font-sans transition-colors duration-200 cursor-pointer ${
       active
-        ? 'bg-[#C9A84C] text-[#0F0F0F] font-medium'
-        : 'bg-[#2A2A2A] text-[#B0B0B0] hover:bg-[#333] hover:text-[#F5F0E8]'
+        ? 'bg-[#111111] text-white font-medium'
+        : 'bg-[#F7F7F7] text-[#666666] border border-[#999999] hover:bg-[#E5E5E5] hover:text-[#111111]'
     }`;
 
   return (
-    <div className="min-h-screen bg-[#0F0F0F]">
+    <div className="min-h-screen bg-white">
       <SEO
         title="Our Fleet | Prestige Luxury Rentals"
         description="Browse our collection of exotic and luxury cars for rent. Lamborghini, Ferrari, McLaren, Porsche, Mercedes, and more from $395/day."
       />
       {/* Page Header */}
-      <section className="pt-36 pb-16 px-6 text-center">
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="font-serif text-5xl md:text-6xl text-[#F5F0E8] mb-5"
-        >
-          Our Fleet
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.15 }}
-          className="font-sans text-lg text-[#B0B0B0] max-w-xl mx-auto"
-        >
-          Explore our collection of the world's finest automobiles
-        </motion.p>
+      <section className="pt-36 pb-16 px-6">
+        <div className="max-w-7xl mx-auto">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="font-serif text-5xl md:text-6xl text-[#111111] mb-5"
+          >
+            Our Fleet
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="font-sans text-lg text-[#666666] max-w-xl"
+          >
+            Explore our collection of the world's finest automobiles
+          </motion.p>
+        </div>
       </section>
 
       {/* Sticky Filter Bar */}
-      <div className="sticky top-0 z-40 bg-[#0F0F0F]/95 backdrop-blur-sm border-b border-[#2A2A2A]">
+      <div className="sticky top-0 z-40 bg-white/95 backdrop-blur-sm border-b border-[#E5E5E5]">
         <div className="max-w-7xl mx-auto px-6 py-5 space-y-4">
           {/* Brand Filters */}
           <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide">
@@ -107,7 +109,7 @@ export default function Fleet() {
               </button>
             ))}
 
-            <span className="w-px h-6 bg-[#2A2A2A] mx-2 shrink-0" />
+            <span className="w-px h-6 bg-[#E5E5E5] mx-2 shrink-0" />
 
             <button
               onClick={() => setPriceSort(priceSort === 'low' ? 'none' : 'low')}
@@ -126,8 +128,8 @@ export default function Fleet() {
       </div>
 
       {/* Results Count + Grid */}
-      <section className="max-w-7xl mx-auto px-6 py-14">
-        <p className="text-[#B0B0B0] font-sans text-sm mb-10">
+      <section className="max-w-7xl mx-auto px-6 py-32 md:py-44">
+        <p className="text-[#999999] font-sans text-sm mb-10">
           Showing {filteredCars.length} vehicle{filteredCars.length !== 1 ? 's' : ''}
         </p>
 
@@ -144,7 +146,7 @@ export default function Fleet() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.35, delay: i * 0.05 }}
-                className="bg-[#1A1A1A] rounded-lg border border-[#2A2A2A] overflow-hidden group"
+                className="bg-white rounded-xl border border-[#E5E5E5] overflow-hidden group hover:shadow-sm transition-shadow duration-300"
               >
                 {/* Car Image */}
                 <div className="overflow-hidden aspect-[4/3]">
@@ -157,21 +159,21 @@ export default function Fleet() {
 
                 {/* Car Info */}
                 <div className="p-6">
+                  <p className="text-[#999999] text-xs tracking-widest uppercase font-sans mb-1">
+                    {car.brand}
+                  </p>
                   <div className="flex items-start justify-between gap-2 mb-2">
-                    <div>
-                      <h3 className="font-serif text-xl text-[#F5F0E8]">
-                        {car.brand} {car.model}
-                      </h3>
-                      <p className="text-[#B0B0B0] text-sm font-sans">{car.year}</p>
-                    </div>
-                    <p className="text-[#C9A84C] font-serif text-lg whitespace-nowrap">
+                    <h3 className="font-serif text-xl text-[#111111]">
+                      {car.model}
+                    </h3>
+                    <p className="text-[#111111] font-serif text-lg whitespace-nowrap">
                       ${car.pricePerDay.toLocaleString()}
-                      <span className="text-xs text-[#B0B0B0] font-sans">/day</span>
+                      <span className="text-xs text-[#999999] font-sans">/day</span>
                     </p>
                   </div>
 
                   {/* Specs Row */}
-                  <div className="flex gap-4 mt-4 text-xs text-[#B0B0B0] font-sans">
+                  <div className="flex gap-4 mt-4 text-xs text-[#666666] font-sans">
                     <span>{car.specs.horsepower} HP</span>
                     <span>{car.specs.acceleration}</span>
                     <span>{car.specs.engine}</span>
@@ -180,7 +182,7 @@ export default function Fleet() {
                   {/* View Details Link */}
                   <Link
                     to={`/fleet/${car.id}`}
-                    className="mt-6 block text-center py-2.5 rounded-md bg-[#C9A84C] text-[#0F0F0F] font-sans font-medium text-sm hover:bg-[#d4b45a] transition-colors duration-200"
+                    className="mt-6 block text-center py-2.5 rounded-md border border-[#111111] text-[#111111] font-sans font-medium text-sm hover:bg-[#111111] hover:text-white transition-colors duration-200"
                   >
                     View Details
                   </Link>
@@ -192,7 +194,7 @@ export default function Fleet() {
 
         {filteredCars.length === 0 && (
           <div className="text-center py-28">
-            <p className="text-[#B0B0B0] font-sans text-lg">
+            <p className="text-[#666666] font-sans text-lg">
               No vehicles match your filters.
             </p>
             <button
@@ -201,7 +203,7 @@ export default function Fleet() {
                 setActiveCategory('all');
                 setPriceSort('none');
               }}
-              className="mt-4 text-[#C9A84C] font-sans underline hover:text-[#d4b45a] transition-colors"
+              className="mt-4 text-[#C41E2A] font-sans underline hover:text-[#a01822] transition-colors"
             >
               Clear all filters
             </button>

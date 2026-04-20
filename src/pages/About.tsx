@@ -80,32 +80,31 @@ const locations = [
 
 function About() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-white">
       <SEO
         title="About Us | Prestige Luxury Rentals"
         description="Miami's most trusted exotic car rental since 2004. 4 locations, 50% repeat clients, in-house service, price match guarantee."
       />
       {/* ── Hero ── */}
-      <section className="relative flex items-center justify-center h-[55vh] min-h-[400px] overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-charcoal-dark/80 via-charcoal-dark/60 to-charcoal-dark" />
+      <section className="relative flex items-center justify-center h-[55vh] min-h-[400px] overflow-hidden bg-light">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           className="relative z-10 text-center px-6"
         >
-          <p className="text-sm tracking-[0.3em] uppercase text-gold mb-4">
+          <p className="text-sm tracking-[0.3em] uppercase text-red mb-4">
             Est. 2004
           </p>
-          <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl tracking-wide text-cream">
+          <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl tracking-wide text-dark">
             About Prestige
           </h1>
-          <div className="w-16 h-px bg-gold mx-auto mt-6" />
+          <div className="w-16 h-px bg-red mx-auto mt-6" />
         </motion.div>
       </section>
 
       {/* ── Our Story ── */}
-      <section className="py-32 md:py-44">
+      <section className="py-32 md:py-44 bg-white">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
           <motion.h2
             initial="hidden"
@@ -113,7 +112,7 @@ function About() {
             viewport={{ once: true, margin: '-60px' }}
             variants={fadeUp}
             custom={0}
-            className="font-serif text-3xl md:text-5xl text-cream text-center mb-20"
+            className="font-serif text-3xl md:text-5xl text-dark text-center mb-20"
           >
             Our Story
           </motion.h2>
@@ -125,7 +124,7 @@ function About() {
               viewport={{ once: true, margin: '-50px' }}
               variants={fadeUp}
               custom={1}
-              className="text-lg md:text-xl leading-relaxed text-smoke"
+              className="text-lg md:text-xl leading-relaxed text-gray"
             >
               Established in 2004, Prestige Luxury Rentals has been Miami&rsquo;s
               most trusted exotic car rental service for over 20 years. What
@@ -140,7 +139,7 @@ function About() {
               viewport={{ once: true, margin: '-50px' }}
               variants={fadeUp}
               custom={2}
-              className="text-lg md:text-xl leading-relaxed text-smoke"
+              className="text-lg md:text-xl leading-relaxed text-gray"
             >
               Between owning our cars and servicing them in-house, we are able to
               offer the lowest prices of any company in the market. Our clients
@@ -156,7 +155,7 @@ function About() {
               viewport={{ once: true, margin: '-50px' }}
               variants={fadeUp}
               custom={3}
-              className="text-lg md:text-xl leading-relaxed text-smoke"
+              className="text-lg md:text-xl leading-relaxed text-gray"
             >
               From our four physical locations to 24/7 agent availability, we
               built Prestige around a simple idea: the experience should match
@@ -168,7 +167,7 @@ function About() {
       </section>
 
       {/* ── Stats ── */}
-      <section className="border-y border-white/5 bg-charcoal">
+      <section className="border-y border-gray-muted bg-light">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10 py-32 md:py-44">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-14 lg:gap-8 text-center">
             {stats.map((stat, i) => (
@@ -180,10 +179,10 @@ function About() {
                 variants={fadeUp}
                 custom={i}
               >
-                <span className="block font-serif text-5xl md:text-6xl lg:text-7xl text-gold">
+                <span className="block font-serif text-5xl md:text-6xl lg:text-7xl text-red">
                   {stat.value}
                 </span>
-                <span className="block mt-3 text-sm tracking-[0.2em] uppercase text-smoke">
+                <span className="block mt-3 text-sm tracking-[0.2em] uppercase text-gray">
                   {stat.label}
                 </span>
               </motion.div>
@@ -193,7 +192,7 @@ function About() {
       </section>
 
       {/* ── What Sets Us Apart ── */}
-      <section className="py-32 md:py-44">
+      <section className="py-32 md:py-44 bg-white">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
           <motion.h2
             initial="hidden"
@@ -201,7 +200,7 @@ function About() {
             viewport={{ once: true, margin: '-60px' }}
             variants={fadeUp}
             custom={0}
-            className="font-serif text-3xl md:text-5xl text-cream text-center mb-20"
+            className="font-serif text-3xl md:text-5xl text-dark text-center mb-20"
           >
             What Sets Us Apart
           </motion.h2>
@@ -217,15 +216,15 @@ function About() {
                   viewport={{ once: true, margin: '-50px' }}
                   variants={fadeUp}
                   custom={i + 1}
-                  className="bg-charcoal border border-white/5 p-10 lg:p-14 hover:border-gold/20 transition-colors duration-500"
+                  className="bg-white border border-gray-muted p-10 lg:p-14 hover:border-red/20 hover:shadow-sm transition-all duration-500"
                 >
-                  <div className="w-14 h-14 flex items-center justify-center rounded-full border border-gold/30 mb-8">
-                    <Icon className="w-6 h-6 text-gold" />
+                  <div className="w-14 h-14 flex items-center justify-center rounded-full border border-red/20 mb-8">
+                    <Icon className="w-6 h-6 text-red" />
                   </div>
-                  <h3 className="font-serif text-2xl text-cream mb-4">
+                  <h3 className="font-serif text-2xl text-dark mb-4">
                     {item.title}
                   </h3>
-                  <p className="text-base leading-relaxed text-smoke">
+                  <p className="text-base leading-relaxed text-gray">
                     {item.description}
                   </p>
                 </motion.div>
@@ -236,7 +235,7 @@ function About() {
       </section>
 
       {/* ── Our Locations ── */}
-      <section className="border-y border-white/5 bg-charcoal py-32 md:py-44">
+      <section className="border-y border-gray-muted bg-light py-32 md:py-44">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
           <motion.h2
             initial="hidden"
@@ -244,7 +243,7 @@ function About() {
             viewport={{ once: true, margin: '-60px' }}
             variants={fadeUp}
             custom={0}
-            className="font-serif text-3xl md:text-5xl text-cream text-center mb-20"
+            className="font-serif text-3xl md:text-5xl text-dark text-center mb-20"
           >
             Our Locations
           </motion.h2>
@@ -258,34 +257,34 @@ function About() {
                 viewport={{ once: true, margin: '-50px' }}
                 variants={fadeUp}
                 custom={i + 1}
-                className="bg-charcoal-dark border border-white/5 p-10 lg:p-12 hover:border-gold/20 transition-colors duration-500"
+                className="bg-white border border-gray-muted p-10 lg:p-12 hover:border-red/20 hover:shadow-sm transition-all duration-500"
               >
-                <h3 className="font-serif text-2xl text-cream mb-1">
+                <h3 className="font-serif text-2xl text-dark mb-1">
                   {loc.city}
                 </h3>
                 {loc.tag && (
-                  <span className="inline-block text-xs tracking-[0.2em] uppercase text-gold mb-6">
+                  <span className="inline-block text-xs tracking-[0.2em] uppercase text-red mb-6">
                     {loc.tag}
                   </span>
                 )}
                 {!loc.tag && <div className="mb-6" />}
 
-                <div className="space-y-4 text-sm text-smoke">
+                <div className="space-y-4 text-sm text-gray">
                   <div className="flex items-start gap-3">
-                    <MapPin className="w-4 h-4 text-gold mt-0.5 shrink-0" />
+                    <MapPin className="w-4 h-4 text-red mt-0.5 shrink-0" />
                     <span>{loc.address}</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <Phone className="w-4 h-4 text-gold shrink-0" />
+                    <Phone className="w-4 h-4 text-red shrink-0" />
                     <a
                       href={`tel:${loc.phone.replace(/[^+\d]/g, '')}`}
-                      className="hover:text-gold transition-colors duration-300"
+                      className="hover:text-red transition-colors duration-300"
                     >
                       {loc.phone}
                     </a>
                   </div>
                   <div className="flex items-start gap-3">
-                    <Clock className="w-4 h-4 text-gold mt-0.5 shrink-0" />
+                    <Clock className="w-4 h-4 text-red mt-0.5 shrink-0" />
                     <div className="leading-relaxed">
                       <span className="block">{loc.hours.weekday}</span>
                       <span className="block">{loc.hours.saturday}</span>
@@ -300,7 +299,7 @@ function About() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-32 md:py-44">
+      <section className="py-32 md:py-44 bg-white">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10 text-center">
           <motion.div
             initial="hidden"
@@ -309,16 +308,16 @@ function About() {
             variants={fadeUp}
             custom={0}
           >
-            <h2 className="font-serif text-3xl md:text-5xl text-cream mb-6">
+            <h2 className="font-serif text-3xl md:text-5xl text-dark mb-6">
               Book Your Dream Rental Today
             </h2>
-            <p className="text-smoke text-lg max-w-xl mx-auto mb-12">
+            <p className="text-gray text-lg max-w-xl mx-auto mb-12">
               Browse our fleet of exotic and luxury vehicles. Door-to-door
               delivery, no hidden fees, and 24/7 support included.
             </p>
             <Link
               to="/fleet"
-              className="inline-block px-12 py-4 bg-gold text-charcoal-dark text-sm font-semibold tracking-widest uppercase hover:bg-gold-light transition-colors duration-300"
+              className="inline-block px-12 py-4 bg-red text-white text-sm font-semibold tracking-widest uppercase hover:bg-red-dark transition-colors duration-300"
             >
               Explore the Fleet
             </Link>

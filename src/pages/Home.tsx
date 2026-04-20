@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Shield, Clock, Star, ChevronDown, Phone, MessageCircle } from 'lucide-react';
+import { Star, ChevronDown, Phone } from 'lucide-react';
 import { getFeaturedCars } from '../data/cars';
 import SEO from '../components/SEO';
 
@@ -44,7 +44,7 @@ function Hero() {
         loop
         playsInline
         className="absolute inset-0 h-full w-full object-cover"
-        poster={`https://prestigeluxuryrentals.com/wp-content/uploads/2021/01/Lamborghini-Aventador-Front.jpg`}
+        poster="https://prestigeluxuryrentals.com/wp-content/uploads/2021/01/Lamborghini-Aventador-Front.jpg"
       >
         <source
           src="https://videos.pexels.com/video-files/17051328/17051328-hd_1920_1080_24fps.mp4"
@@ -53,46 +53,48 @@ function Hero() {
       </video>
 
       {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-[#0F0F0F]" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/20" />
 
-      {/* Content */}
-      <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
+      {/* Content — bottom-left aligned */}
+      <div className="relative z-10 flex h-full flex-col justify-end px-8 pb-32 sm:px-12 md:px-20 lg:px-28">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
-          className="font-serif text-5xl leading-tight text-[#F5F0E8] sm:text-6xl md:text-7xl lg:text-8xl"
+          className="max-w-3xl font-serif text-4xl leading-tight text-white sm:text-5xl md:text-6xl lg:text-7xl"
         >
-          Experience Extraordinary
+          Miami&apos;s Premier
+          <br />
+          Exotic Car Rental
         </motion.h1>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.7 }}
-          className="mt-8 max-w-2xl text-base text-[#B0B0B0] sm:text-lg md:text-xl"
+          className="mt-6 max-w-xl text-sm font-light tracking-wide text-white/70 sm:text-base md:text-lg"
         >
-          Miami&apos;s premier exotic car rental. Ferrari, Lamborghini, Porsche,
-          and more — delivered to your door.
+          Ferrari. Lamborghini. Rolls-Royce. Delivered to your door since 2004.
         </motion.p>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.1 }}
-          className="mt-12 flex flex-col gap-4 sm:flex-row"
+          className="mt-10 flex flex-col items-start gap-4"
         >
           <Link
             to="/fleet"
-            className="inline-block rounded bg-[#C9A84C] px-8 py-3.5 font-sans text-sm font-semibold uppercase tracking-widest text-[#0F0F0F] transition-colors hover:bg-[#d4b85e]"
+            className="inline-block rounded bg-[#C41E2A] px-8 py-3.5 font-sans text-sm font-semibold uppercase tracking-widest text-white transition-colors hover:bg-[#a81923]"
           >
-            Explore Fleet
+            View Our Fleet
           </Link>
           <a
             href="tel:3055139711"
-            className="inline-block rounded border border-[#C9A84C] px-8 py-3.5 font-sans text-sm font-semibold uppercase tracking-widest text-[#C9A84C] transition-colors hover:bg-[#C9A84C]/10"
+            className="inline-flex items-center gap-2 text-sm text-white/60 transition-colors hover:text-white"
           >
-            Call Now
+            <Phone className="h-4 w-4" />
+            (305) 513-9711
           </a>
         </motion.div>
       </div>
@@ -108,7 +110,7 @@ function Hero() {
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
         >
-          <ChevronDown className="h-7 w-7 text-[#C9A84C]" />
+          <ChevronDown className="h-7 w-7 text-white/40" />
         </motion.div>
       </motion.div>
     </section>
@@ -122,23 +124,27 @@ function FeaturedFleet() {
   const featured = getFeaturedCars();
 
   return (
-    <section className="bg-[#0F0F0F] px-6 py-32 md:py-44">
+    <section className="bg-white px-6 py-32 md:py-44">
       <div className="mx-auto max-w-7xl">
-        {/* Heading */}
-        <AnimatedSection className="mb-20 text-center">
-          <h2 className="font-serif text-3xl text-[#F5F0E8] sm:text-4xl md:text-5xl">
-            Featured Vehicles
+        {/* Heading — left aligned */}
+        <AnimatedSection className="mb-6">
+          <h2 className="font-serif text-4xl text-[#111111] sm:text-5xl md:text-6xl">
+            The Fleet
           </h2>
-          <div className="mx-auto mt-4 h-0.5 w-16 bg-[#C9A84C]" />
+        </AnimatedSection>
+        <AnimatedSection className="mb-16" delay={0.1}>
+          <p className="max-w-lg text-base text-[#666666]">
+            Hand-picked exotics, maintained in-house, delivered to you
+          </p>
         </AnimatedSection>
 
         {/* Grid */}
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {featured.map((car, i) => (
-            <AnimatedSection key={car.id} delay={i * 0.12}>
+            <AnimatedSection key={car.id} delay={i * 0.1}>
               <Link
                 to={`/fleet/${car.id}`}
-                className="group block overflow-hidden rounded-xl border border-[#2A2A2A] bg-[#1A1A1A] transition-colors hover:border-[#C9A84C]/30"
+                className="group block overflow-hidden rounded-xl border border-[#E5E5E5] bg-white transition-shadow hover:shadow-sm"
               >
                 {/* Image */}
                 <div className="relative aspect-[16/10] overflow-hidden">
@@ -152,20 +158,20 @@ function FeaturedFleet() {
 
                 {/* Info */}
                 <div className="p-6">
-                  <p className="text-xs font-medium uppercase tracking-wider text-[#C9A84C]">
+                  <p className="text-xs font-medium uppercase tracking-wider text-[#999999]">
                     {car.brand}
                   </p>
-                  <h3 className="mt-2 font-serif text-xl text-[#F5F0E8]">
+                  <h3 className="mt-2 font-serif text-xl text-[#111111]">
                     {car.model}
                   </h3>
                   <div className="mt-3 flex items-center justify-between">
-                    <p className="text-sm text-[#B0B0B0]">
-                      <span className="text-lg font-semibold text-[#F5F0E8]">
+                    <p className="text-sm text-[#666666]">
+                      <span className="text-lg font-semibold text-[#111111]">
                         ${car.pricePerDay.toLocaleString()}
                       </span>
                       /day
                     </p>
-                    <span className="text-sm font-medium text-[#C9A84C] transition-colors group-hover:text-[#d4b85e]">
+                    <span className="text-sm font-medium text-[#999999] transition-colors group-hover:text-[#C41E2A]">
                       View Details &rarr;
                     </span>
                   </div>
@@ -180,49 +186,78 @@ function FeaturedFleet() {
 }
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   3. WHY PRESTIGE
+   3. FULL-WIDTH IMAGE BREAK
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
-const VALUE_PROPS = [
-  {
-    icon: Shield,
-    title: 'Fully Insured',
-    desc: 'Every rental includes comprehensive coverage so you can drive with confidence.',
-  },
-  {
-    icon: Clock,
-    title: '24/7 Delivery',
-    desc: 'Door-to-door delivery and pickup, any time — airport, hotel, or home.',
-  },
-  {
-    icon: Star,
-    title: '20 Years of Excellence',
-    desc: 'Trusted by thousands since 2004. Our reputation is our strongest asset.',
-  },
-];
+function ImageBreak() {
+  return (
+    <section className="w-full">
+      <div className="aspect-[21/9] w-full overflow-hidden">
+        <img
+          src="https://prestigeluxuryrentals.com/wp-content/uploads/2021/01/Lamborghini-Aventador-Front.jpg"
+          alt="Lamborghini Aventador"
+          loading="lazy"
+          className="h-full w-full object-cover"
+        />
+      </div>
+    </section>
+  );
+}
 
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   4. WHY PRESTIGE
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 function WhyPrestige() {
   return (
-    <section className="bg-[#0F0F0F] px-6 py-32 md:py-44">
-      <div className="mx-auto max-w-5xl">
-        <AnimatedSection className="mb-20 text-center">
-          <h2 className="font-serif text-3xl text-[#F5F0E8] sm:text-4xl md:text-5xl">
-            Why Prestige
+    <section className="bg-[#F7F7F7] px-6 py-32 md:py-44">
+      <div className="mx-auto max-w-7xl">
+        <AnimatedSection className="mb-16">
+          <h2 className="font-serif text-4xl text-[#111111] sm:text-5xl md:text-6xl">
+            Why Clients Choose Us
           </h2>
-          <div className="mx-auto mt-4 h-0.5 w-16 bg-[#C9A84C]" />
         </AnimatedSection>
 
-        <div className="grid gap-12 lg:gap-16 sm:grid-cols-2 lg:grid-cols-3">
-          {VALUE_PROPS.map((prop, i) => (
-            <AnimatedSection key={prop.title} delay={i * 0.15} className="text-center">
-              <div className="mx-auto mb-8 flex h-20 w-20 items-center justify-center rounded-full border border-[#C9A84C]/20 bg-[#C9A84C]/10">
-                <prop.icon className="h-8 w-8 text-[#C9A84C]" />
+        {/* 2-column layout */}
+        <div className="grid gap-16 lg:grid-cols-2 lg:gap-24">
+          {/* Left — stats */}
+          <AnimatedSection delay={0.1}>
+            <div className="flex flex-col gap-12">
+              <div>
+                <p className="font-serif text-6xl text-[#111111] md:text-7xl">20+</p>
+                <p className="mt-2 text-base text-[#666666]">Years in business</p>
               </div>
-              <h3 className="font-serif text-xl text-[#F5F0E8]">{prop.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-[#B0B0B0]">
-                {prop.desc}
+              <div className="h-px bg-[#E5E5E5]" />
+              <div>
+                <p className="font-serif text-6xl text-[#111111] md:text-7xl">50%</p>
+                <p className="mt-2 text-base text-[#666666]">Repeat clients</p>
+              </div>
+              <div className="h-px bg-[#E5E5E5]" />
+              <div>
+                <p className="font-serif text-6xl text-[#111111] md:text-7xl">24/7</p>
+                <p className="mt-2 text-base text-[#666666]">Availability</p>
+              </div>
+            </div>
+          </AnimatedSection>
+
+          {/* Right — text */}
+          <AnimatedSection delay={0.25}>
+            <div className="flex flex-col justify-center lg:py-8">
+              <p className="text-lg leading-relaxed text-[#666666] md:text-xl">
+                Since 2004, Prestige Luxury Rentals has been Miami&apos;s trusted source
+                for exotic and luxury vehicles. Every car in our fleet is maintained
+                in-house by our own technicians — no third-party rentals, no surprises.
               </p>
-            </AnimatedSection>
-          ))}
+              <p className="mt-8 text-lg leading-relaxed text-[#666666] md:text-xl">
+                We deliver door-to-door, any time of day, anywhere in South Florida.
+                From the airport to your hotel, from a weekend escape to a month-long stay
+                — our team handles every detail so you can focus on the drive.
+              </p>
+              <p className="mt-8 text-lg leading-relaxed text-[#666666] md:text-xl">
+                Every rental includes comprehensive insurance, 24/7 roadside support,
+                and a personal concierge who knows the fleet inside and out. This is
+                car rental done properly.
+              </p>
+            </div>
+          </AnimatedSection>
         </div>
       </div>
     </section>
@@ -230,7 +265,7 @@ function WhyPrestige() {
 }
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   4. TESTIMONIALS
+   5. TESTIMONIALS
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 const TESTIMONIALS = [
   {
@@ -252,36 +287,35 @@ const TESTIMONIALS = [
 
 function Testimonials() {
   return (
-    <section className="bg-[#0F0F0F] px-6 py-32 md:py-44">
-      <div className="mx-auto max-w-6xl">
-        <AnimatedSection className="mb-20 text-center">
-          <h2 className="font-serif text-3xl text-[#F5F0E8] sm:text-4xl md:text-5xl">
+    <section className="bg-white px-6 py-32 md:py-44">
+      <div className="mx-auto max-w-7xl">
+        <AnimatedSection className="mb-16">
+          <h2 className="font-serif text-4xl text-[#111111] sm:text-5xl md:text-6xl">
             What Our Clients Say
           </h2>
-          <div className="mx-auto mt-4 h-0.5 w-16 bg-[#C9A84C]" />
         </AnimatedSection>
 
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {TESTIMONIALS.map((t, i) => (
             <AnimatedSection key={t.name} delay={i * 0.12}>
-              <div className="rounded-xl border border-[#2A2A2A] bg-[#1A1A1A] p-8 md:p-10">
+              <div className="border-l-2 border-[#C41E2A] bg-white py-6 pl-8 pr-6">
                 {/* Stars */}
-                <div className="mb-6 flex gap-1">
+                <div className="mb-5 flex gap-1">
                   {Array.from({ length: 5 }).map((_, j) => (
                     <Star
                       key={j}
-                      className="h-4 w-4 fill-[#C9A84C] text-[#C9A84C]"
+                      className="h-4 w-4 fill-[#111111] text-[#111111]"
                     />
                   ))}
                 </div>
 
-                <p className="text-base leading-relaxed text-[#B0B0B0]">
+                <p className="text-base leading-relaxed text-[#666666]">
                   &ldquo;{t.text}&rdquo;
                 </p>
 
-                <div className="mt-8 border-t border-[#2A2A2A] pt-4">
-                  <p className="font-semibold text-[#F5F0E8]">{t.name}</p>
-                  <p className="text-xs text-[#B0B0B0]">{t.location}</p>
+                <div className="mt-8">
+                  <p className="font-semibold text-[#111111]">{t.name}</p>
+                  <p className="text-sm text-[#999999]">{t.location}</p>
                 </div>
               </div>
             </AnimatedSection>
@@ -293,48 +327,32 @@ function Testimonials() {
 }
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   5. CTA BANNER
+   6. CTA — Dark contrast section
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 function CtaBanner() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-[#1A1A1A] via-[#0F0F0F] to-[#1A1A1A] px-6 py-32 md:py-44">
-      {/* Subtle decorative glow */}
-      <div className="pointer-events-none absolute left-1/2 top-0 h-[1px] w-2/3 -translate-x-1/2 bg-gradient-to-r from-transparent via-[#C9A84C]/40 to-transparent" />
-
-      <div className="relative z-10 mx-auto max-w-3xl text-center">
+    <section className="bg-[#111111] px-6 py-32 md:py-44">
+      <div className="mx-auto max-w-4xl text-center">
         <AnimatedSection>
-          <h2 className="font-serif text-3xl text-[#F5F0E8] sm:text-4xl md:text-5xl">
-            Ready to Drive Your Dream?
+          <h2 className="font-serif text-4xl text-white sm:text-5xl md:text-6xl">
+            Ready to drive?
           </h2>
-          <p className="mt-6 text-base text-[#B0B0B0] md:text-lg">
-            Book now or call us — we&apos;ll have your car ready within hours.
-          </p>
 
-          <div className="mt-12 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+          <div className="mt-12 flex flex-col items-center gap-5">
             <Link
               to="/fleet"
-              className="inline-block rounded bg-[#C9A84C] px-8 py-3.5 font-sans text-sm font-semibold uppercase tracking-widest text-[#0F0F0F] transition-colors hover:bg-[#d4b85e]"
+              className="inline-block rounded bg-[#C41E2A] px-10 py-4 font-sans text-sm font-semibold uppercase tracking-widest text-white transition-colors hover:bg-[#a81923]"
             >
-              Book Now
+              Explore the Fleet
             </Link>
             <a
               href="tel:3055139711"
-              className="inline-flex items-center gap-2 rounded border border-[#C9A84C] px-8 py-3.5 font-sans text-sm font-semibold uppercase tracking-widest text-[#C9A84C] transition-colors hover:bg-[#C9A84C]/10"
+              className="inline-flex items-center gap-2 text-sm text-white/50 transition-colors hover:text-white"
             >
               <Phone className="h-4 w-4" />
               (305) 513-9711
             </a>
           </div>
-
-          <a
-            href="https://wa.me/13055139711"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-6 inline-flex items-center gap-2 text-sm text-[#B0B0B0] transition-colors hover:text-[#C9A84C]"
-          >
-            <MessageCircle className="h-4 w-4" />
-            Or message us on WhatsApp
-          </a>
         </AnimatedSection>
       </div>
     </section>
@@ -344,14 +362,6 @@ function CtaBanner() {
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
    PAGE EXPORT
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
-function SectionDivider() {
-  return (
-    <div className="mx-auto max-w-7xl px-6">
-      <div className="h-px bg-gradient-to-r from-transparent via-[#C9A84C]/20 to-transparent" />
-    </div>
-  );
-}
-
 export default function Home() {
   return (
     <main>
@@ -361,11 +371,9 @@ export default function Home() {
       />
       <Hero />
       <FeaturedFleet />
-      <SectionDivider />
+      <ImageBreak />
       <WhyPrestige />
-      <SectionDivider />
       <Testimonials />
-      <SectionDivider />
       <CtaBanner />
     </main>
   );

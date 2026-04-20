@@ -11,6 +11,7 @@ import {
   Phone,
   MessageCircle,
 } from 'lucide-react';
+import SEO from '../components/SEO';
 
 /* ─── Reusable animation wrapper ─── */
 function AnimatedSection({
@@ -43,20 +44,14 @@ function AnimatedSection({
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 function Hero() {
   return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-charcoal-dark via-charcoal/80 to-charcoal-dark" />
-
-      {/* Subtle pattern overlay */}
-      <div className="absolute inset-0 opacity-5 bg-[radial-gradient(circle_at_50%_50%,_#C9A84C_1px,_transparent_1px)] bg-[length:40px_40px]" />
-
+    <section className="relative flex items-center justify-center h-[55vh] min-h-[400px] overflow-hidden bg-light">
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center px-6 text-center">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="mb-6 text-sm font-medium tracking-[0.3em] uppercase text-gold"
+          className="mb-6 text-sm font-medium tracking-[0.3em] uppercase text-red"
         >
           Prestige Transportation
         </motion.p>
@@ -65,26 +60,26 @@ function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="font-serif text-5xl font-semibold leading-tight tracking-tight text-cream md:text-7xl lg:text-8xl"
+          className="font-serif text-5xl font-semibold leading-tight tracking-tight text-dark md:text-7xl lg:text-8xl"
         >
           Luxury Chauffeur
           <br />
           Services
         </motion.h1>
 
-        {/* Gold divider */}
+        {/* Red divider */}
         <motion.div
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="my-8 h-px w-24 bg-gold md:w-32"
+          className="my-8 h-px w-24 bg-red md:w-32"
         />
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1.0 }}
-          className="max-w-2xl text-lg leading-relaxed text-smoke md:text-xl"
+          className="max-w-2xl text-lg leading-relaxed text-gray md:text-xl"
         >
           Premium transportation with top-of-the-line vehicles and unmatched
           professionalism
@@ -101,19 +96,19 @@ function ServiceAreas() {
   const areas = ['Miami', 'Palm Beach', 'Fort Lauderdale', 'New York City'];
 
   return (
-    <section className="py-32 md:py-44">
+    <section className="py-32 md:py-44 bg-white">
       <div className="mx-auto max-w-6xl px-6 text-center">
         <AnimatedSection>
-          <p className="mb-4 text-sm font-medium tracking-[0.3em] uppercase text-gold">
+          <p className="mb-4 text-sm font-medium tracking-[0.3em] uppercase text-red">
             Where We Operate
           </p>
-          <h2 className="font-serif text-3xl font-semibold text-cream md:text-5xl mb-20">
+          <h2 className="font-serif text-3xl font-semibold text-dark md:text-5xl mb-20">
             Serving the Most Prestigious Destinations
           </h2>
         </AnimatedSection>
 
         <AnimatedSection delay={0.2}>
-          <p className="mb-12 max-w-2xl mx-auto text-lg text-smoke leading-relaxed">
+          <p className="mb-12 max-w-2xl mx-auto text-lg text-gray leading-relaxed">
             Prestige Transportation is the newest division of Prestige Luxury
             Rentals, building on over 20 years of experience delivering
             excellence in luxury transportation.
@@ -125,9 +120,9 @@ function ServiceAreas() {
             <AnimatedSection key={area} delay={0.3 + i * 0.1}>
               <div className="flex items-center gap-3">
                 {i > 0 && (
-                  <span className="hidden text-gold/40 md:inline">|</span>
+                  <span className="hidden text-gray-muted md:inline">|</span>
                 )}
-                <span className="font-serif text-xl font-medium text-cream md:text-2xl">
+                <span className="font-serif text-xl font-medium text-dark md:text-2xl">
                   {area}
                 </span>
               </div>
@@ -165,13 +160,13 @@ const fleet = [
 
 function FleetPricing() {
   return (
-    <section className="bg-charcoal py-32 md:py-44">
+    <section className="bg-light py-32 md:py-44">
       <div className="mx-auto max-w-6xl px-6">
         <AnimatedSection className="text-center">
-          <p className="mb-4 text-sm font-medium tracking-[0.3em] uppercase text-gold">
+          <p className="mb-4 text-sm font-medium tracking-[0.3em] uppercase text-red">
             Our Fleet
           </p>
-          <h2 className="font-serif text-3xl font-semibold text-cream md:text-5xl mb-20">
+          <h2 className="font-serif text-3xl font-semibold text-dark md:text-5xl mb-20">
             Fleet &amp; Pricing
           </h2>
         </AnimatedSection>
@@ -179,29 +174,26 @@ function FleetPricing() {
         <div className="grid gap-8 md:grid-cols-3">
           {fleet.map((vehicle, i) => (
             <AnimatedSection key={vehicle.name} delay={0.15 * i}>
-              <div className="group relative overflow-hidden rounded-2xl border border-charcoal-light bg-charcoal-light p-10 transition-all duration-500 hover:border-gold/30 hover:bg-charcoal-light/80">
-                {/* Glow effect on hover */}
-                <div className="absolute inset-0 bg-gradient-to-b from-gold/5 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-
+              <div className="group relative overflow-hidden rounded-2xl border border-gray-muted bg-white p-10 transition-all duration-500 hover:border-red/20 hover:shadow-sm">
                 <div className="relative z-10">
-                  <Car className="mb-6 h-8 w-8 text-gold" />
+                  <Car className="mb-6 h-8 w-8 text-red" />
 
-                  <h3 className="font-serif text-2xl font-semibold text-cream">
+                  <h3 className="font-serif text-2xl font-semibold text-dark">
                     {vehicle.name}
                   </h3>
 
                   <div className="mt-4 mb-6">
-                    <span className="font-serif text-4xl font-bold text-gold">
+                    <span className="font-serif text-4xl font-bold text-red">
                       ${vehicle.price}
                     </span>
-                    <span className="ml-1 text-sm text-smoke">/hour</span>
+                    <span className="ml-1 text-sm text-gray">/hour</span>
                   </div>
 
-                  <p className="text-sm leading-relaxed text-smoke">
+                  <p className="text-sm leading-relaxed text-gray">
                     {vehicle.description}
                   </p>
 
-                  <p className="mt-6 text-xs font-medium tracking-wider uppercase text-gold/70">
+                  <p className="mt-6 text-xs font-medium tracking-wider uppercase text-red/70">
                     4-hour minimum
                   </p>
                 </div>
@@ -243,13 +235,13 @@ const services = [
 
 function ServicesOffered() {
   return (
-    <section className="py-32 md:py-44">
+    <section className="py-32 md:py-44 bg-white">
       <div className="mx-auto max-w-6xl px-6">
         <AnimatedSection className="text-center">
-          <p className="mb-4 text-sm font-medium tracking-[0.3em] uppercase text-gold">
+          <p className="mb-4 text-sm font-medium tracking-[0.3em] uppercase text-red">
             What We Offer
           </p>
-          <h2 className="font-serif text-3xl font-semibold text-cream md:text-5xl mb-20">
+          <h2 className="font-serif text-3xl font-semibold text-dark md:text-5xl mb-20">
             Services Offered
           </h2>
         </AnimatedSection>
@@ -258,15 +250,15 @@ function ServicesOffered() {
           {services.map((service, i) => (
             <AnimatedSection key={service.title} delay={0.1 * i}>
               <div className="group text-center">
-                <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full border border-gold/20 bg-charcoal transition-all duration-500 group-hover:border-gold/50 group-hover:bg-charcoal-light">
-                  <service.icon className="h-7 w-7 text-gold" />
+                <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full border border-red/20 bg-light transition-all duration-500 group-hover:border-red/50 group-hover:bg-white">
+                  <service.icon className="h-7 w-7 text-red" />
                 </div>
 
-                <h3 className="mb-3 font-serif text-xl font-semibold text-cream">
+                <h3 className="mb-3 font-serif text-xl font-semibold text-dark">
                   {service.title}
                 </h3>
 
-                <p className="text-sm leading-relaxed text-smoke">
+                <p className="text-sm leading-relaxed text-gray">
                   {service.description}
                 </p>
               </div>
@@ -304,13 +296,13 @@ const valueProps = [
 
 function WhyChooseUs() {
   return (
-    <section className="bg-charcoal py-32 md:py-44">
+    <section className="bg-light py-32 md:py-44">
       <div className="mx-auto max-w-6xl px-6">
         <AnimatedSection className="text-center">
-          <p className="mb-4 text-sm font-medium tracking-[0.3em] uppercase text-gold">
+          <p className="mb-4 text-sm font-medium tracking-[0.3em] uppercase text-red">
             The Prestige Difference
           </p>
-          <h2 className="font-serif text-3xl font-semibold text-cream md:text-5xl mb-20">
+          <h2 className="font-serif text-3xl font-semibold text-dark md:text-5xl mb-20">
             Why Choose Us
           </h2>
         </AnimatedSection>
@@ -318,14 +310,14 @@ function WhyChooseUs() {
         <div className="grid gap-8 md:grid-cols-3">
           {valueProps.map((prop, i) => (
             <AnimatedSection key={prop.title} delay={0.15 * i}>
-              <div className="rounded-2xl border border-charcoal-light bg-charcoal-light p-10 text-center transition-all duration-500 hover:border-gold/30">
-                <prop.icon className="mx-auto mb-6 h-10 w-10 text-gold" />
+              <div className="rounded-2xl border border-gray-muted bg-white p-10 text-center transition-all duration-500 hover:border-red/20 hover:shadow-sm">
+                <prop.icon className="mx-auto mb-6 h-10 w-10 text-red" />
 
-                <h3 className="mb-4 font-serif text-2xl font-semibold text-cream">
+                <h3 className="mb-4 font-serif text-2xl font-semibold text-dark">
                   {prop.title}
                 </h3>
 
-                <p className="text-sm leading-relaxed text-smoke">
+                <p className="text-sm leading-relaxed text-gray">
                   {prop.description}
                 </p>
               </div>
@@ -342,19 +334,19 @@ function WhyChooseUs() {
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 function BookCTA() {
   return (
-    <section className="py-32 md:py-44">
+    <section className="py-32 md:py-44 bg-white">
       <div className="mx-auto max-w-4xl px-6 text-center">
         <AnimatedSection>
-          <p className="mb-4 text-sm font-medium tracking-[0.3em] uppercase text-gold">
+          <p className="mb-4 text-sm font-medium tracking-[0.3em] uppercase text-red">
             Ready to Ride
           </p>
-          <h2 className="font-serif text-4xl font-semibold text-cream md:text-6xl mb-20">
+          <h2 className="font-serif text-4xl font-semibold text-dark md:text-6xl mb-20">
             Book Your Chauffeur
           </h2>
         </AnimatedSection>
 
         <AnimatedSection delay={0.2}>
-          <p className="mb-12 text-lg text-smoke leading-relaxed">
+          <p className="mb-12 text-lg text-gray leading-relaxed">
             Contact us to arrange your luxury transportation. Our team is
             available 24/7 to accommodate your schedule.
           </p>
@@ -365,7 +357,7 @@ function BookCTA() {
             {/* Phone */}
             <a
               href="tel:+13055139711"
-              className="group inline-flex items-center gap-3 rounded-full border border-gold bg-gold/10 px-8 py-4 font-medium text-gold transition-all duration-300 hover:bg-gold hover:text-charcoal-dark"
+              className="group inline-flex items-center gap-3 rounded-full border border-red bg-red px-8 py-4 font-medium text-white transition-all duration-300 hover:bg-red-dark"
             >
               <Phone className="h-5 w-5" />
               (305) 513-9711
@@ -376,7 +368,7 @@ function BookCTA() {
               href="https://wa.me/13055139711"
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-3 rounded-full border border-charcoal-light bg-charcoal-light px-8 py-4 font-medium text-cream transition-all duration-300 hover:border-gold/50 hover:text-gold"
+              className="group inline-flex items-center gap-3 rounded-full border border-gray-muted bg-light px-8 py-4 font-medium text-dark transition-all duration-300 hover:border-red/20 hover:text-red"
             >
               <MessageCircle className="h-5 w-5" />
               WhatsApp
@@ -393,13 +385,17 @@ function BookCTA() {
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 export default function Chauffeur() {
   return (
-    <>
+    <main className="bg-white">
+      <SEO
+        title="Chauffeur Services | Prestige Luxury Rentals"
+        description="Premium chauffeur services in Miami, Palm Beach, Fort Lauderdale, and New York City. Mercedes Sprinter, Escalade ESV, and Maybach available."
+      />
       <Hero />
       <ServiceAreas />
       <FleetPricing />
       <ServicesOffered />
       <WhyChooseUs />
       <BookCTA />
-    </>
+    </main>
   );
 }

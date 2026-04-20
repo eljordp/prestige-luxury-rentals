@@ -22,7 +22,7 @@ function ScrollToTop() {
 
 function App() {
   return (
-    <div className="min-h-screen bg-charcoal-dark">
+    <div className="min-h-screen bg-white">
       <ScrollToTop />
       <Navbar />
       <main>
