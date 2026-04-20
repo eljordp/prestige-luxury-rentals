@@ -36,17 +36,23 @@ function AnimatedSection({
 function Hero() {
   return (
     <section className="relative h-screen w-full overflow-hidden">
-      {/* Background image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage:
-            'url(https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=1920&q=80)',
-        }}
-      />
+      {/* Background video */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 h-full w-full object-cover"
+        poster={`https://prestigeluxuryrentals.com/wp-content/uploads/2021/01/Lamborghini-Aventador-Front.jpg`}
+      >
+        <source
+          src="https://videos.pexels.com/video-files/17051328/17051328-hd_1920_1080_24fps.mp4"
+          type="video/mp4"
+        />
+      </video>
 
       {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-[#0F0F0F]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-[#0F0F0F]" />
 
       {/* Content */}
       <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
